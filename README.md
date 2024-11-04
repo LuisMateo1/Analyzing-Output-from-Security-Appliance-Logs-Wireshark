@@ -65,8 +65,7 @@ Following the HTTP stream will show that a connection was made to a server runni
 #
 **Packet Capture 1 Analysis:**
 Based on the information seen in the images above packet capture 1 is an example of an attacker scanning for open ports on the target system, based on the large amount of TCP traffic noted by using the 
-protocol hierarchy tab, coupled with the short duration of the connections found by using the conversations tab, which also shows the packets were only sent one way: from 10.39.5.2 to 10.39.5.6
-- The expert information window showed there were many connection requests and resets, so as soon as the port was either deemed open or closed the connection would be terminated via a RST packet. So the attacker might have used the -sS flag on nmap to half-open connections and terminate them if the port was open, and if the port was closed the target system would send a rst, ack back to the attacker
+protocol hierarchy tab, coupled with the short duration of the connections found by using the conversations tab, which also shows the packets sent between 10.39.5.2 and 10.39.5.6
 
 Protocol Hierarchy
 
@@ -79,6 +78,38 @@ Conversations
 Expert Information
 
 ![image](https://github.com/user-attachments/assets/97809489-1f3e-4f9c-b73f-e3980f9a691d)
+
+The attacker's IP is 10.39.5.6 and they are scanning for open ports using a stealth scan. 
+- The attacker might have used the -sS flag on Nmap, which is a half-open scan that will start the connection process and terminate them if the port is open, and if the port is closed the target system would send an RST, ACK back to the attacker. 
+
+![image](https://github.com/user-attachments/assets/9916be6e-7a54-42d8-8323-d10281abf64d)
+
+10.39.5.6 sends an SYN packet to check if the port is open, and if it is then is sends an RST packet so that it won't fully connect to the target. The expert information tab shows how RSK, ACK packets are sent by 10.39.5.2 if the port is closed.
+- The screenshot below shows how 10.39.5.2 sends a SYN, ACK if the port is open, or it will send a RST, ACK if the port is closed. 
+
+![image](https://github.com/user-attachments/assets/55beee19-44e6-4698-ad18-9fcece08f384)
+
+#
+**Packet Capture 2 Analysis:**
+
+First I checked the conversations tab, and I saw that a few addresses were communicating with 10.1.0.10
+![image](https://github.com/user-attachments/assets/13b687a7-7c6d-4369-bcbe-b81310fa6f0b)
+
+These communications were over HTTP, following the TCP stream will show all the data that was being shared between them in cleartext. I see that 192.168.1.101 is communicating with a server running the Metasploit Framework.
+![image](https://github.com/user-attachments/assets/f5f3d47c-cfdf-41ac-a5ad-edb0aa2fa8f9)
+
+![image](https://github.com/user-attachments/assets/a0fc1dcb-b577-4e3d-ae69-8174d43a7333)
+
+After further inspection of the HTTP stream, it looks like these are just students learning to use Metasploit, and are communicating with this server to do so. 
+
+Looking at the protocol hierarchy window, I see that the majority of the packets sent were ICMP packets
+![image](https://github.com/user-attachments/assets/8e7e8a50-34ad-4dc8-b3b2-bc97b86b2f5f)
+
+Looking further into it, IP 172.16.0.254 is sending a bunch of ICMP requests to 172.16.0.253. This is indicative of a denial of service attack using an ICMP Ping flood. 
+
+![image](https://github.com/user-attachments/assets/b5d5348c-b163-4d32-9141-fdce9761d7e1)
+#
+
 
 #
 **Summary: Wireshark is a packet capture tool, that can be used to analyze the connections made and data transferred between two hosts. The tabs I looked at ways to simplify the information and make analysis faster/simpler however it 
