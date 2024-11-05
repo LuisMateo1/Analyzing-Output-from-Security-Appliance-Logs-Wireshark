@@ -111,6 +111,15 @@ Looking further into it, IP 172.16.0.254 is sending a bunch of ICMP requests to 
 ![image](https://github.com/user-attachments/assets/b5d5348c-b163-4d32-9141-fdce9761d7e1)
 #
 **Packet Capture 3 Analysis:**
+First I looked at the expert information tab, which showed some malformed HTTP packets and illegal characters in the HTTP header. 
+
+![image](https://github.com/user-attachments/assets/fab868f9-827e-4a3b-a00e-7ed6c67fd554)
+
+![image](https://github.com/user-attachments/assets/83075ece-8823-4a25-8be1-9bfbd032b132)
+
+Looking at the conversations tab, we see which connections were made
+![image](https://github.com/user-attachments/assets/96c5c0ba-acb4-41f9-b797-635ea6d74969)
+
 
 ![image](https://github.com/user-attachments/assets/aae2a6ce-424f-44f9-8bb1-d2b52ca89506)
 
@@ -118,21 +127,11 @@ Looking further into it, IP 172.16.0.254 is sending a bunch of ICMP requests to 
 
 ![image](https://github.com/user-attachments/assets/ce1699d2-4670-4c94-98b8-ec2e577e3241)
 
-![image](https://github.com/user-attachments/assets/96c5c0ba-acb4-41f9-b797-635ea6d74969)
 
-![image](https://github.com/user-attachments/assets/83075ece-8823-4a25-8be1-9bfbd032b132)
 
-![image](https://github.com/user-attachments/assets/fab868f9-827e-4a3b-a00e-7ed6c67fd554)
+
 
 
 #
 **Summary: Wireshark is a packet capture tool, that can be used to analyze the connections made and data transferred between two hosts. The tabs I looked at ways to simplify the information and make analysis faster/simpler however it 
 doesn't completely replace a proper investigation.**
-
-
-
-
-
-
-
-
