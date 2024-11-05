@@ -58,6 +58,7 @@ In the case of this 1st packet capture, it was just a bunch of TCP connections, 
 ![image](https://github.com/user-attachments/assets/2839c9af-f66d-4718-882a-cb4cecda843c)
 
 In the second capture data was transferred over HTTP, and because HTTP is a TCP protocol following either stream will show the same data.
+
 ![image](https://github.com/user-attachments/assets/b4097948-4a88-41b9-a359-1c2d0669cad3)
 
 Following the HTTP stream will show that a connection was made to a server running Metasploitable2
@@ -97,6 +98,7 @@ First I checked the conversations tab, and I saw that a few addresses were commu
 ![image](https://github.com/user-attachments/assets/13b687a7-7c6d-4369-bcbe-b81310fa6f0b)
 
 These communications were over HTTP, following the TCP stream will show all the data that was being shared between them in cleartext. I see that 192.168.1.101 is communicating with a server running the Metasploit Framework.
+
 ![image](https://github.com/user-attachments/assets/f5f3d47c-cfdf-41ac-a5ad-edb0aa2fa8f9)
 
 ![image](https://github.com/user-attachments/assets/a0fc1dcb-b577-4e3d-ae69-8174d43a7333)
@@ -111,16 +113,21 @@ Looking further into it, IP 172.16.0.254 is sending a bunch of ICMP requests to 
 ![image](https://github.com/user-attachments/assets/b5d5348c-b163-4d32-9141-fdce9761d7e1)
 #
 **Packet Capture 3 Analysis:**
+
 First I looked at the expert information tab, which showed some malformed HTTP packets and illegal characters in the HTTP header. 
 
 ![image](https://github.com/user-attachments/assets/fab868f9-827e-4a3b-a00e-7ed6c67fd554)
 
 ![image](https://github.com/user-attachments/assets/83075ece-8823-4a25-8be1-9bfbd032b132)
 
-Looking at the conversations tab, we see which connections were made
+Looking at the conversations tab, we see which connections were made...
 ![image](https://github.com/user-attachments/assets/96c5c0ba-acb4-41f9-b797-635ea6d74969)
 
+10.1.0.2 is a mail server
 
+![image](https://github.com/user-attachments/assets/746e4f3b-c222-408e-b517-003b67651d49)
+
+10.1.0.101 is a workstation or server
 ![image](https://github.com/user-attachments/assets/aae2a6ce-424f-44f9-8bb1-d2b52ca89506)
 
 ![image](https://github.com/user-attachments/assets/c5fc68b4-382e-4a04-badd-43124f141e34)
