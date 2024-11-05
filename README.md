@@ -64,6 +64,7 @@ Following the HTTP stream will show that a connection was made to a server runni
 ![image](https://github.com/user-attachments/assets/e31e3a0e-163e-408f-8092-d7798d0ab33a)
 #
 **Packet Capture 1 Analysis:**
+
 Based on the information seen in the images above packet capture 1 is an example of an attacker scanning for open ports on the target system, based on the large amount of TCP traffic noted by using the 
 protocol hierarchy tab, coupled with the short duration of the connections found by using the conversations tab, which also shows the packets sent between 10.39.5.2 and 10.39.5.6
 
@@ -109,6 +110,19 @@ Looking further into it, IP 172.16.0.254 is sending a bunch of ICMP requests to 
 
 ![image](https://github.com/user-attachments/assets/b5d5348c-b163-4d32-9141-fdce9761d7e1)
 #
+**Packet Capture 3 Analysis:**
+
+![image](https://github.com/user-attachments/assets/aae2a6ce-424f-44f9-8bb1-d2b52ca89506)
+
+![image](https://github.com/user-attachments/assets/c5fc68b4-382e-4a04-badd-43124f141e34)
+
+![image](https://github.com/user-attachments/assets/ce1699d2-4670-4c94-98b8-ec2e577e3241)
+
+![image](https://github.com/user-attachments/assets/96c5c0ba-acb4-41f9-b797-635ea6d74969)
+
+![image](https://github.com/user-attachments/assets/83075ece-8823-4a25-8be1-9bfbd032b132)
+
+![image](https://github.com/user-attachments/assets/fab868f9-827e-4a3b-a00e-7ed6c67fd554)
 
 
 #
