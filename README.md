@@ -130,15 +130,11 @@ Looking at the conversations tab, we see which connections were made...
 10.1.0.101 is a workstation or server
 ![image](https://github.com/user-attachments/assets/aae2a6ce-424f-44f9-8bb1-d2b52ca89506)
 
-![image](https://github.com/user-attachments/assets/c5fc68b4-382e-4a04-badd-43124f141e34)
+This is the email sent from 192.168.1.1 to the email server. One of the lines says "Received: from [192.168.2.101]", and further down it contains an executable for an update for MS Office, that patches a Zero-Day vulnerability.
 
 ![image](https://github.com/user-attachments/assets/ce1699d2-4670-4c94-98b8-ec2e577e3241)
 
-
-
-
-
+Assuming that this email was malicious (because MS Office should update on its own, or prompt an update), then the recipient of the email (Bobby), would have opened the email on 192.168.2.101 and downloaded the executable. This malicious file could explain the malformed HTTP packets and illegal characters in the HTTP header.
 
 #
-**Summary: Wireshark is a packet capture tool, that can be used to analyze the connections made and data transferred between two hosts. The tabs I looked at ways to simplify the information and make analysis faster/simpler however it 
-doesn't completely replace a proper investigation.**
+**Summary: Wireshark is a packet capture tool, that can be used to analyze the connections made and data transferred between two hosts. The tabs I looked at are ways to simplify the information and make analysis faster/simpler however it doesn't completely replace a proper investigation. Wireshark can be used to perform an in-depth analysis of the packets, and aids investigation.**
